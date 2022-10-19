@@ -7,18 +7,47 @@ class CradTable extends StatelessWidget {
   Widget build(BuildContext context) {
     return Table(
       children: [
-        TableRow(children: [_SigleCard()]),
-        TableRow(children: [_SigleCard()]),
-        TableRow(children: [_SigleCard()]),
-        TableRow(children: [_SigleCard()]),
-        TableRow(children: [_SigleCard()])
+        TableRow(children: [
+          _SigleCard(
+            titulo: 'Polar',
+            desc: 'En este caso la señal toma valores positivos para un 1 lógico y negativos para un 0 lógico pero unca toma el valor 0.',
+          )
+        ]),
+        TableRow(children: [
+          _SigleCard(
+            titulo: 'Unipolar',
+            desc:
+                'En este caso un 1 siempre toma una polaridad, positiva o negativa, mientras que un 0 vale siempre 0.',
+          )
+        ]),
+        TableRow(children: [
+          _SigleCard(
+            titulo: 'Bipolar',
+            desc: 'En este caso un dígito toma valor con polaridad alternada mientras que el otro permance simepre 0.',
+          )
+        ]),
+        TableRow(children: [
+          _SigleCard(
+            titulo: 'Manchester',
+            desc: 'En este código siempre hay una transición en la mitad del intervalo de duración de los bits. Cada transición positiva representa un 1 y cada transición negativa representa un 0.',
+          )
+        ]),
+        TableRow(children: [
+          _SigleCard(
+            titulo: 'Manchester diferncial',
+            desc: 'En la descodificación se detecta el estado de cada intervalo y se lo compara con el estado del intervalo anterior. Si ocurrió un cambio de la señal se descodifica un 1 de lo contrario 0.',
+          )
+        ])
       ],
     );
   }
 }
 
 class _SigleCard extends StatelessWidget {
-  
+  final String titulo;
+  final String desc;
+
+  const _SigleCard({super.key, required this.titulo, required this.desc});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,7 +62,7 @@ class _SigleCard extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Polar',
+                titulo,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                     color: Colors.white,
@@ -46,8 +75,7 @@ class _SigleCard extends StatelessWidget {
             height: 20,
           ),
           Expanded(
-            child: Text(
-                'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
+            child: Text(desc,
                 textAlign: TextAlign.justify,
                 style: TextStyle(color: Colors.white, fontSize: 15)),
           ),
