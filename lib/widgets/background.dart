@@ -18,10 +18,10 @@ class Background extends StatelessWidget {
       gradient: LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
-        stops: [0.2, 0.8],
+        stops: [0.2, 0.99],
         colors: [
-          Color(0xff004E5A),
-          Colors.black
+          Color(0xff014A55),
+          Colors.black.withOpacity(0.9)
         ]
         )
      );

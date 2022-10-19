@@ -24,8 +24,8 @@ class _HomeBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(height: 100,),
-          Text('CODIFICACIÓNES', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.white),),
+          SizedBox(height: 80,),
+          Text('CODIFICACIÓNES', textDirection: TextDirection.ltr,style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.white, ),),
           CradTable()
         ],
       ),
