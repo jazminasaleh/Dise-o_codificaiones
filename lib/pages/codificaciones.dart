@@ -3,19 +3,25 @@ import 'package:flutter/material.dart';
 
 import '../widgets/background.dart';
 
+//* Pra el checkbox al final mainaxisaligmen.end
 class CodificacionesScreen extends StatelessWidget {
+  final String titulo;
+
+  const CodificacionesScreen({super.key, required this.titulo});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [Background(), _Codificaciones()],
+        children: [Background(), _Codificaciones(titulo: this.titulo,)],
       ),
     );
   }
 }
 
 class _Codificaciones extends StatelessWidget {
-  const _Codificaciones({super.key});
+  final String titulo;
+
+  const _Codificaciones({super.key, required this.titulo});
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +29,7 @@ class _Codificaciones extends StatelessWidget {
       child: Column(
         children: [
           Row(
+             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               IconButton(
                 alignment: Alignment.topLeft,
@@ -37,23 +44,32 @@ class _Codificaciones extends StatelessWidget {
                 },
               ),
               SizedBox(
-                height: 160,
+                height: 90,
               ),
-              SizedBox(
-                width: 120,
-              ),
-              Center(
-                  child: Text('Polar',
+             
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              
+                  Text(this.titulo,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 30,
                         color: Colors.white,
-                      ))),
+                      )
+                    )
+                  
             ],
           ),
           _Cuadrotexto(),
           _CuadroRZ(),
-          _CuadroPN()
+          _CuadroPN(),
+          SizedBox(
+            height: 65,
+          ),
+          _botton()
         ],
       ),
     );
@@ -61,7 +77,7 @@ class _Codificaciones extends StatelessWidget {
 }
 
 class _Cuadrotexto extends StatelessWidget {
-  const _Cuadrotexto({super.key});
+  late String texto;
 
   @override
   Widget build(BuildContext context) {
@@ -72,11 +88,37 @@ class _Cuadrotexto extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.black.withOpacity(0.5),
           borderRadius: BorderRadius.circular(20)),
-
       child: Column(
         children: [
           Center(
-            child: Text('Ingresar texto', style: TextStyle(fontSize: 15, color: Color(0xffB6B7BB)),),
+            child: Text(
+              'Ingresar texto',
+              style: TextStyle(fontSize: 15, color: Color(0xffB6B7BB)),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          TextField(
+            style: TextStyle(color: Color(0xffB6B7BB)),
+            decoration: InputDecoration(
+                border:
+                    //*Cuando se esta
+                    OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey, width: 5.0),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                //*Cuando no se esta escribiendo en texto
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                hintText: '',
+                hintStyle: TextStyle(color: Color(0xffB6B7BB))),
+            onChanged: (texto) {
+              print('$texto');
+            },
+            maxLines: 4,
           )
         ],
       ),
@@ -114,7 +156,7 @@ class _CuadroRZState extends State<_CuadroRZ> {
                     fontWeight: FontWeight.bold),
               ),
               SizedBox(
-                width: 200,
+                width: 170,
               ),
               Switch(
                   activeColor: Color(0xffB6B7BB),
@@ -141,7 +183,7 @@ class _CuadroRZState extends State<_CuadroRZ> {
                     fontWeight: FontWeight.bold),
               ),
               SizedBox(
-                width: 182,
+                width: 150,
               ),
               Switch(
                   activeColor: Color(0xffB6B7BB),
@@ -190,9 +232,10 @@ class _CuadroPNState extends State<_CuadroPN> {
                     fontWeight: FontWeight.bold),
               ),
               SizedBox(
-                width: 160,
+                width: 140,
               ),
               Checkbox(
+                  checkColor: Colors.grey,
                   activeColor: Color(0xff87E7E4),
                   value: this.negativo,
                   onChanged: (value) {
@@ -216,9 +259,10 @@ class _CuadroPNState extends State<_CuadroPN> {
                     fontWeight: FontWeight.bold),
               ),
               SizedBox(
-                width: 171,
+                width: 151,
               ),
               Checkbox(
+                  checkColor: Colors.grey,
                   activeColor: Color(0xff87E7E4),
                   value: this.positivo,
                   onChanged: (value) {
@@ -228,6 +272,38 @@ class _CuadroPNState extends State<_CuadroPN> {
                     });
                   })
             ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class _botton extends StatelessWidget {
+  const _botton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          MaterialButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
+            },
+            height: 55,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            disabledColor: Colors.grey,
+            elevation: 0,
+            color: Color(0xff87E7E4),
+            child: Container(
+              child: Text(
+                '  Enviar  ',
+                style: TextStyle(fontSize: 30, color: Color(0xff004853)),
+              ),
+            ),
           )
         ],
       ),

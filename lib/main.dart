@@ -13,7 +13,9 @@ class AppState extends StatelessWidget {
       routes: {
         'home' : (_) => HomeScreen()
       },
-     
+     theme: Theme.of(context).copyWith(
+      unselectedWidgetColor: Color(0xff87E7E4)
+     ),
     );
   }
 }
