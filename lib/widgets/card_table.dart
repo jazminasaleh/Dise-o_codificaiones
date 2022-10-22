@@ -1,3 +1,4 @@
+import 'package:diseno_codificaciones/pages/codificaciones.dart';
 import 'package:flutter/material.dart';
 
 class CradTable extends StatelessWidget {
@@ -10,7 +11,8 @@ class CradTable extends StatelessWidget {
         TableRow(children: [
           _SigleCard(
             titulo: 'Polar',
-            desc: 'En este caso la señal toma valores positivos para un 1 lógico y negativos para un 0 lógico pero unca toma el valor 0.',
+            desc:
+                'En este caso la señal toma valores positivos para un 1 lógico y negativos para un 0 lógico pero unca toma el valor 0.',
           )
         ]),
         TableRow(children: [
@@ -23,19 +25,22 @@ class CradTable extends StatelessWidget {
         TableRow(children: [
           _SigleCard(
             titulo: 'Bipolar',
-            desc: 'En este caso un dígito toma valor con polaridad alternada mientras que el otro permance simepre 0.',
+            desc:
+                'En este caso un dígito toma valor con polaridad alternada mientras que el otro permance simepre 0.',
           )
         ]),
         TableRow(children: [
           _SigleCard(
             titulo: 'Manchester',
-            desc: 'En este código siempre hay una transición en la mitad del intervalo de duración de los bits. Cada transición positiva representa un 1 y cada transición negativa representa un 0.',
+            desc:
+                'En este código siempre hay una transición en la mitad del intervalo de duración de los bits. Cada transición positiva representa un 1 y cada transición negativa representa un 0.',
           )
         ]),
         TableRow(children: [
           _SigleCard(
             titulo: 'Manchester diferncial',
-            desc: 'En la descodificación se detecta el estado de cada intervalo y se lo compara con el estado del intervalo anterior. Si ocurrió un cambio de la señal se descodifica un 1 de lo contrario 0.',
+            desc:
+                'En la descodificación se detecta el estado de cada intervalo y se lo compara con el estado del intervalo anterior. Si ocurrió un cambio de la señal se descodifica un 1 de lo contrario 0.',
           )
         ])
       ],
@@ -86,7 +91,12 @@ class _SigleCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CodificacionesScreen()));
+                },
                 height: 40,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
