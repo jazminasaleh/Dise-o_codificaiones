@@ -1,5 +1,6 @@
 import 'package:diseno_codificaciones/pages/codificaciones.dart';
 import 'package:diseno_codificaciones/pages/codificacionesBlock.dart';
+import 'package:diseno_codificaciones/pages/codificacionesPolar.dart';
 import 'package:flutter/material.dart';
 
 class CradTable extends StatelessWidget {
@@ -101,6 +102,12 @@ class _SigleCard extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => 
                           CodificacionesBlockScreen(titulo: this.titulo,)));
+                  }else if(this.titulo == 'Polar'){
+                       Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => 
+                          CodificacionesPolarScreen(titulo: this.titulo,)));
                   }else{
                      Navigator.push(
                       context,

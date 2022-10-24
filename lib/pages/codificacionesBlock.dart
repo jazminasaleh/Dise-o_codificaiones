@@ -375,7 +375,7 @@ class _CuadroPNState extends State<_CuadroPN> {
                         'Negativo/Positivo',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      Text('Positivo: en la gráfica toma valores positivos; en cambio Negativos: toma valores en la gráfica negativos o 0.')),
+                      Text('En cualquiera de los dos casos puede tomar el valor de cero y cunado es positivo: en la gráfica toma valores positivos; en cambio negativos: toma valores en la gráfica negativos.')),
                   icon: Icon(
                     Icons.help_outline,
                     color: Color(0xffB6B7BB),

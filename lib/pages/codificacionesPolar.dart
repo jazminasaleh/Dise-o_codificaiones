@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 import '../widgets/background.dart';
 
-class CodificacionesScreen extends StatelessWidget {
+class CodificacionesPolarScreen extends StatelessWidget {
   final String titulo;
 
-  const CodificacionesScreen({super.key, required this.titulo});
+  const CodificacionesPolarScreen({super.key, required this.titulo});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -343,7 +343,7 @@ class _CuadroPNState extends State<_CuadroPN> {
                   value: this.negativo,
                   onChanged: (value) {
                     setState(() {
-                      this.negativo = value!;
+                      this.negativo = false;
                       this.positivo = false;
                     });
                   })
@@ -367,7 +367,7 @@ class _CuadroPNState extends State<_CuadroPN> {
                   value: this.positivo,
                   onChanged: (value) {
                     setState(() {
-                      this.positivo = value!;
+                      this.positivo = false;
                       this.negativo = false;
                     });
                   })
