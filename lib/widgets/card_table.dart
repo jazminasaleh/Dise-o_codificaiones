@@ -1,4 +1,5 @@
 import 'package:diseno_codificaciones/pages/codificaciones.dart';
+import 'package:diseno_codificaciones/pages/codificacionesBlock.dart';
 import 'package:flutter/material.dart';
 
 class CradTable extends StatelessWidget {
@@ -94,10 +95,20 @@ class _SigleCard extends StatelessWidget {
             children: [
               MaterialButton(
                 onPressed: () {
-                  Navigator.push(
+                  if(this.titulo == 'Manchester'|| this.titulo == 'Manchester diferncial' ){
+                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => CodificacionesScreen(titulo: this.titulo,)));
+                          builder: (context) => 
+                          CodificacionesBlockScreen(titulo: this.titulo,)));
+                  }else{
+                     Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => 
+                          CodificacionesScreen(titulo: this.titulo,)));
+                  }
+                 
                 },
                 height: 40,
                 shape: RoundedRectangleBorder(

@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 import '../widgets/background.dart';
 
-class CodificacionesScreen extends StatelessWidget {
+class CodificacionesBlockScreen extends StatelessWidget {
   final String titulo;
 
-  const CodificacionesScreen({super.key, required this.titulo});
+  const CodificacionesBlockScreen({super.key, required this.titulo});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -205,12 +205,8 @@ class _CuadroRZState extends State<_CuadroRZ> {
                   activeColor: Color(0xffB6B7BB),
                   activeTrackColor: Color(0xff87E7E4),
                   value: this.rz,
-                  onChanged: (value) {
-                    setState(() {
-                      this.rz = value!;
-                      nrz = false;
-                    });
-                  })
+                  onChanged:null
+                  )
             ],
           ),
           Row(
@@ -236,12 +232,8 @@ class _CuadroRZState extends State<_CuadroRZ> {
                   activeColor: Color(0xffB6B7BB),
                   activeTrackColor: Color(0xff87E7E4),
                   value: this.nrz,
-                  onChanged: (value) {
-                    setState(() {
-                      this.nrz = value!;
-                      rz = false;
-                    });
-                  })
+                  onChanged: null
+                  )
             ],
           ),
           Row(
@@ -343,7 +335,7 @@ class _CuadroPNState extends State<_CuadroPN> {
                   value: this.negativo,
                   onChanged: (value) {
                     setState(() {
-                      this.negativo = value!;
+                      this.negativo = false;
                       this.positivo = false;
                     });
                   })
@@ -367,7 +359,7 @@ class _CuadroPNState extends State<_CuadroPN> {
                   value: this.positivo,
                   onChanged: (value) {
                     setState(() {
-                      this.positivo = value!;
+                      this.positivo = false;
                       this.negativo = false;
                     });
                   })
