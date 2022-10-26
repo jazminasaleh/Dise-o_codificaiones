@@ -13,21 +13,21 @@ class CradTable extends StatelessWidget {
         TableRow(children: [
           _SigleCard(
             titulo: 'Polar',
-            desc:'En este caso la señal toma valores positivos para un 1 lógico y negativos para un 0 lógico pero unca toma el valor 0.',
+            desc:'En este caso la señal toma valores positivos para un 1 lógico y negativos para un 0 lógico pero nunca toma el valor 0.',
             tipo: 'Polar',
           )
         ]),
         TableRow(children: [
           _SigleCard(
             titulo: 'Unipolar',
-            desc:'En este caso un 1 siempre toma una polaridad, positiva o negativa, mientras que un 0 vale siempre 0.', 
+            desc:'En este caso un 1 siempre toma una polaridad positiva o negativa, mientras que un 0 vale siempre 0.', 
             tipo: 'Unipolar',
           )
         ]),
         TableRow(children: [
           _SigleCard(
             titulo: 'Bipolar',
-            desc:'En este caso un dígito toma valor con polaridad alternada mientras que el otro permance simepre 0.', 
+            desc:'En este caso un dígito toma valor con polaridad alternada mientras que el otro permance simepre en 0.', 
             tipo: 'Bipolar',
           )
         ]),
@@ -41,7 +41,7 @@ class CradTable extends StatelessWidget {
         ]),
         TableRow(children: [
           _SigleCard(
-            titulo: 'Manchester diferncial',
+            titulo: 'Manchester diferencial',
             desc:'En la descodificación se detecta el estado de cada intervalo y se lo compara con el estado del intervalo anterior. Si ocurrió un cambio de la señal se descodifica un 1 de lo contrario 0.', 
             tipo: 'Manchester diferncial',
           )

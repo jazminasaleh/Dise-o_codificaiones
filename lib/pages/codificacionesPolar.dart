@@ -183,23 +183,14 @@ class _CuadroRZState extends State<_CuadroRZ> {
       child: Column(
         children: [
           Row(
+             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'RZ',
+                'RZ-L',
                 style: TextStyle(
                     color: Color(0xffB6B7BB),
                     fontSize: 25,
                     fontWeight: FontWeight.bold),
-              ),
-              Text(
-                ' (retorno a cero)',
-                style: TextStyle(
-                  color: Color(0xffB6B7BB),
-                  fontSize: 20,
-                ),
-              ),
-              SizedBox(
-                width: 70,
               ),
               Switch(
                   activeColor: Color(0xffB6B7BB),
@@ -214,23 +205,14 @@ class _CuadroRZState extends State<_CuadroRZ> {
             ],
           ),
           Row(
+             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'NRZ',
+                'NRZ-L',
                 style: TextStyle(
                     color: Color(0xffB6B7BB),
                     fontSize: 25,
                     fontWeight: FontWeight.bold),
-              ),
-              Text(
-                ' (no retorno a cero)',
-                style: TextStyle(
-                  color: Color(0xffB6B7BB),
-                  fontSize: 20,
-                ),
-              ),
-              SizedBox(
-                width: 20,
               ),
               Switch(
                   activeColor: Color(0xffB6B7BB),
@@ -255,7 +237,7 @@ class _CuadroRZState extends State<_CuadroRZ> {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       Text(
-                          'NRZ-L(código NonReturn to Zero Level): un 1 lógico es un pulso de tensión, minetras que un 0 lógico es la ausencia de dicho pulso de tensión. y RZ(Retourn to zero): se tiene tension positiva en una parte de la duración de un 1 lógico, y cero durante el resto del tiempo.')),
+                          'RZ(Retourn to zero): se tiene tension positiva en una parte de la duración de un 1 lógico, y cero durante el resto del tiempo. Y NRZ-L(código NonReturn to Zero Level): un 1 lógico es un pulso de tensión, minetras que un 0 lógico es la ausencia de dicho pulso de tensión.')),
                   icon: Icon(
                     Icons.help_outline,
                     color: Color(0xffB6B7BB),
@@ -326,6 +308,7 @@ class _CuadroPNState extends State<_CuadroPN> {
       child: Column(
         children: [
           Row(
+             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 '   Negativo',
@@ -334,9 +317,7 @@ class _CuadroPNState extends State<_CuadroPN> {
                     fontSize: 25,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(
-                width: 130,
-              ),
+              
               Checkbox(
                   checkColor: Colors.grey,
                   activeColor: Color(0xff87E7E4),
@@ -350,6 +331,7 @@ class _CuadroPNState extends State<_CuadroPN> {
             ],
           ),
           Row(
+             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 '   Positivo',
@@ -357,9 +339,6 @@ class _CuadroPNState extends State<_CuadroPN> {
                     color: Color(0xffB6B7BB),
                     fontSize: 25,
                     fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                width: 141,
               ),
               Checkbox(
                   checkColor: Colors.grey,
