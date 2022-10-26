@@ -251,7 +251,7 @@ class _CuadroRZState extends State<_CuadroRZ> {
                   icon: Icon(
                     Icons.help_outline,
                     color: Color(0xffB6B7BB),
-                    size: 45,
+                    size: 25,
                   ))
             ],
           )
@@ -379,7 +379,7 @@ class _CuadroPNState extends State<_CuadroPN> {
                   icon: Icon(
                     Icons.help_outline,
                     color: Color(0xffB6B7BB),
-                    size: 45,
+                    size: 25,
                   ))
             ],
           )

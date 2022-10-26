@@ -183,24 +183,15 @@ class _CuadroRZState extends State<_CuadroRZ> {
       child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'RZ',
-                style: TextStyle(
-                    color: Color(0xffB6B7BB),
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold),
-              ),
-              Text(
-                ' (retorno a cero)',
-                style: TextStyle(
-                  color: Color(0xffB6B7BB),
-                  fontSize: 20,
-                ),
-              ),
-              SizedBox(
-                width: 70,
-              ),
+                  'RZ-L',
+                  style: TextStyle(
+                      color: Color(0xffB6B7BB),
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
+                ),  
               Switch(
                   activeColor: Color(0xffB6B7BB),
                   activeTrackColor: Color(0xff87E7E4),
@@ -214,24 +205,15 @@ class _CuadroRZState extends State<_CuadroRZ> {
             ],
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'NRZ',
-                style: TextStyle(
-                    color: Color(0xffB6B7BB),
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold),
-              ),
-              Text(
-                ' (no retorno a cero)',
-                style: TextStyle(
-                  color: Color(0xffB6B7BB),
-                  fontSize: 20,
+                Text(
+                  'NRZ-L',
+                  style: TextStyle(
+                      color: Color(0xffB6B7BB),
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
                 ),
-              ),
-              SizedBox(
-                width: 20,
-              ),
               Switch(
                   activeColor: Color(0xffB6B7BB),
                   activeTrackColor: Color(0xff87E7E4),
@@ -259,7 +241,7 @@ class _CuadroRZState extends State<_CuadroRZ> {
                   icon: Icon(
                     Icons.help_outline,
                     color: Color(0xffB6B7BB),
-                    size: 45,
+                    size: 25,
                   ))
             ],
           )
@@ -387,7 +369,7 @@ class _CuadroPNState extends State<_CuadroPN> {
                   icon: Icon(
                     Icons.help_outline,
                     color: Color(0xffB6B7BB),
-                    size: 45,
+                    size: 25,
                   ))
             ],
           )

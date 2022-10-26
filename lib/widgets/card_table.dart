@@ -62,7 +62,7 @@ class _SigleCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(15),
       padding: EdgeInsets.all(20),
-      height: 220,
+      height: 240,
       decoration: BoxDecoration(
           color: Colors.black.withOpacity(0.5),
           borderRadius: BorderRadius.circular(20)),
