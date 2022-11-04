@@ -1,3 +1,4 @@
+import 'package:diseno_codificaciones/pages/grafica.dart';
 import 'package:diseno_codificaciones/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -132,7 +133,7 @@ class _CuadroRZ extends StatefulWidget {
 }
 
 class _CuadroRZState extends State<_CuadroRZ> {
-  bool rz = false;
+  bool rz = true;
   bool nrz = false;
 
   void alertaMensaje(BuildContext context, Text titulo, Text mensaje) {
@@ -183,7 +184,7 @@ class _CuadroRZState extends State<_CuadroRZ> {
       child: Column(
         children: [
           Row(
-             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 'RZ-L',
@@ -199,13 +200,17 @@ class _CuadroRZState extends State<_CuadroRZ> {
                   onChanged: (value) {
                     setState(() {
                       this.rz = value!;
-                      nrz = false;
+                      if (value) {
+                        nrz = false;
+                      } else {
+                        nrz = true;
+                      }
                     });
                   })
             ],
           ),
           Row(
-             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 'NRZ-L',
@@ -221,7 +226,11 @@ class _CuadroRZState extends State<_CuadroRZ> {
                   onChanged: (value) {
                     setState(() {
                       this.nrz = value!;
-                      rz = false;
+                       if (value) {
+                        rz = false;
+                      } else {
+                        rz = true;
+                      }
                     });
                   })
             ],
@@ -308,7 +317,7 @@ class _CuadroPNState extends State<_CuadroPN> {
       child: Column(
         children: [
           Row(
-             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 '   Negativo',
@@ -317,7 +326,6 @@ class _CuadroPNState extends State<_CuadroPN> {
                     fontSize: 25,
                     fontWeight: FontWeight.bold),
               ),
-              
               Checkbox(
                   checkColor: Colors.grey,
                   activeColor: Color(0xff87E7E4),
@@ -331,7 +339,7 @@ class _CuadroPNState extends State<_CuadroPN> {
             ],
           ),
           Row(
-             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 '   Positivo',
@@ -362,7 +370,8 @@ class _CuadroPNState extends State<_CuadroPN> {
                         'Negativo/Positivo',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      Text('En cualquiera de los dos casos puede tomar el valor de cero y cunado es positivo: en la gráfica toma valores positivos; en cambio negativos: toma valores en la gráfica negativos.')),
+                      Text(
+                          'En cualquiera de los dos casos puede tomar el valor de cero y cunado es positivo: en la gráfica toma valores positivos; en cambio negativos: toma valores en la gráfica negativos.')),
                   icon: Icon(
                     Icons.help_outline,
                     color: Color(0xffB6B7BB),
@@ -386,8 +395,8 @@ class _botton extends StatelessWidget {
         children: [
           MaterialButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Grafica()));
             },
             height: 55,
             shape:

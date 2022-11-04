@@ -1,3 +1,4 @@
+import 'package:diseno_codificaciones/pages/grafica.dart';
 import 'package:diseno_codificaciones/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -302,6 +303,7 @@ class _CuadroPNState extends State<_CuadroPN> {
       child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 '   Negativo',
@@ -309,9 +311,6 @@ class _CuadroPNState extends State<_CuadroPN> {
                     color: Color(0xffB6B7BB),
                     fontSize: 25,
                     fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                width: 130,
               ),
               Checkbox(
                   checkColor: Colors.grey,
@@ -326,6 +325,7 @@ class _CuadroPNState extends State<_CuadroPN> {
             ],
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 '   Positivo',
@@ -333,9 +333,6 @@ class _CuadroPNState extends State<_CuadroPN> {
                     color: Color(0xffB6B7BB),
                     fontSize: 25,
                     fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                width: 141,
               ),
               Checkbox(
                   checkColor: Colors.grey,
@@ -384,7 +381,7 @@ class _botton extends StatelessWidget {
           MaterialButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()));
+                  MaterialPageRoute(builder: (context) => Grafica()));
             },
             height: 55,
             shape:

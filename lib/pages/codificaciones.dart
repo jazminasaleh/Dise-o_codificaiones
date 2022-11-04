@@ -1,3 +1,4 @@
+import 'package:diseno_codificaciones/pages/grafica.dart';
 import 'package:diseno_codificaciones/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -132,7 +133,7 @@ class _CuadroRZ extends StatefulWidget {
 }
 
 class _CuadroRZState extends State<_CuadroRZ> {
-  bool rz = false;
+  bool rz = true;
   bool nrz = false;
 
   void alertaMensaje(BuildContext context, Text titulo, Text mensaje) {
@@ -257,7 +258,7 @@ class _CuadroPN extends StatefulWidget {
 }
 
 class _CuadroPNState extends State<_CuadroPN> {
-  bool negativo = false;
+  bool negativo = true;
   bool positivo = false;
 
   void alertaMensaje(BuildContext context, Text titulo, Text mensaje) {
@@ -388,7 +389,7 @@ class _botton extends StatelessWidget {
           MaterialButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()));
+                  MaterialPageRoute(builder: (context) => Grafica()));
             },
             height: 55,
             shape:

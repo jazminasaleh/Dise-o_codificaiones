@@ -96,7 +96,7 @@ class _SigleCard extends StatelessWidget {
             children: [
               MaterialButton(
                 onPressed: () {
-                  if(this.titulo == 'Manchester'|| this.titulo == 'Manchester diferncial' ){
+                  if(this.titulo == 'Manchester'|| this.titulo == 'Manchester diferencial' ){
                      Navigator.push(
                       context,
                       MaterialPageRoute(
