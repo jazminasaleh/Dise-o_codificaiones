@@ -21,10 +21,11 @@ class HomeScreen extends StatelessWidget {
 class _HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return 
+    SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(height: 80,),
+          SizedBox(height: 50,),
           Text('CODIFICACIÓNES', textDirection: TextDirection.ltr,style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.white, ),),
           CradTable()
         ],

@@ -1,6 +1,6 @@
 import 'package:diseno_codificaciones/pages/codificaciones.dart';
-import 'package:diseno_codificaciones/pages/codificacionesBlock.dart';
-import 'package:diseno_codificaciones/pages/codificacionesPolar.dart';
+
+
 import 'package:flutter/material.dart';
 
 class CradTable extends StatelessWidget {
@@ -9,41 +9,50 @@ class CradTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Table(
-      children: [
+      children: const[
         TableRow(children: [
           _SigleCard(
             titulo: 'Polar',
-            desc:'En este caso la señal toma valores positivos para un 1 lógico y negativos para un 0 lógico pero nunca toma el valor 0.',
+            desc:
+                'En este caso la señal toma valores positivos para un 1 lógico y negativos para un 0 lógico pero nunca toma el valor 0.',
             tipo: 'Polar',
+             negpos: false, 
+             rcero: true
           )
         ]),
         TableRow(children: [
           _SigleCard(
             titulo: 'Unipolar',
-            desc:'En este caso un 1 siempre toma una polaridad positiva o negativa, mientras que un 0 vale siempre 0.', 
+            desc:
+                'En este caso un 1 siempre toma una polaridad positiva o negativa, mientras que un 0 vale siempre 0.',
             tipo: 'Unipolar',
+             negpos: true, 
+             rcero: true
           )
         ]),
         TableRow(children: [
           _SigleCard(
             titulo: 'Bipolar',
-            desc:'En este caso un dígito toma valor con polaridad alternada mientras que el otro permance simepre en 0.', 
-            tipo: 'Bipolar',
+            desc:
+                'En este caso un dígito toma valor con polaridad alternada mientras que el otro permance simepre en 0.',
+            tipo: 'Bipolar', negpos: true, 
+            rcero: true
           )
         ]),
         TableRow(children: [
           _SigleCard(
             titulo: 'Manchester',
             desc:
-                'En este código siempre hay una transición en la mitad del intervalo de duración de los bits. Cada transición positiva representa un 1 y cada transición negativa representa un 0.', 
-                tipo: 'Manchester',
+                'En este código siempre hay una transición en la mitad del intervalo de duración de los bits. Cada transición positiva representa un 1 y cada transición negativa representa un 0.',
+            tipo: 'Manchester', negpos: false, rcero: false
           )
         ]),
         TableRow(children: [
           _SigleCard(
             titulo: 'Manchester diferencial',
-            desc:'En la descodificación se detecta el estado de cada intervalo y se lo compara con el estado del intervalo anterior. Si ocurrió un cambio de la señal se descodifica un 1 de lo contrario 0.', 
-            tipo: 'Manchester diferncial',
+            desc:
+                'En la descodificación se detecta el estado de cada intervalo y se lo compara con el estado del intervalo anterior. Si ocurrió un cambio de la señal se descodifica un 1 de lo contrario 0.',
+            tipo: 'Manchester diferncial', negpos: false, rcero: false,
           )
         ])
       ],
@@ -55,8 +64,16 @@ class _SigleCard extends StatelessWidget {
   final String titulo;
   final String desc;
   final String tipo;
+  final bool rcero;
+  final bool negpos;
 
-  const _SigleCard({super.key, required this.titulo, required this.desc, required this.tipo});
+  const _SigleCard(
+      {super.key,
+      required this.titulo,
+      required this.desc,
+      required this.tipo,
+      required this.rcero,
+      required this.negpos});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -96,26 +113,14 @@ class _SigleCard extends StatelessWidget {
             children: [
               MaterialButton(
                 onPressed: () {
-                  if(this.titulo == 'Manchester'|| this.titulo == 'Manchester diferencial' ){
-                     Navigator.push(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => 
-                          CodificacionesBlockScreen(titulo: this.titulo,)));
-                  }else if(this.titulo == 'Polar'){
-                       Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => 
-                          CodificacionesPolarScreen(titulo: this.titulo,)));
-                  }else{
-                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => 
-                          CodificacionesScreen(titulo: this.titulo,)));
-                  }
-                 
+                          builder: (context) => CodificacionesScreen(
+                                titulo: this.titulo,
+                                negpos: this.negpos,
+                                rcero: this.rcero,
+                              )));
                 },
                 height: 40,
                 shape: RoundedRectangleBorder(

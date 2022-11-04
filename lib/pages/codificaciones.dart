@@ -6,8 +6,14 @@ import '../widgets/background.dart';
 
 class CodificacionesScreen extends StatelessWidget {
   final String titulo;
+  final bool rcero;
+  final bool negpos;
 
-  const CodificacionesScreen({super.key, required this.titulo});
+  const CodificacionesScreen(
+      {super.key,
+      required this.titulo,
+      required this.rcero,
+      required this.negpos});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +22,8 @@ class CodificacionesScreen extends StatelessWidget {
           Background(),
           _Codificaciones(
             titulo: this.titulo,
+            negpos: this.negpos,
+            rcero: this.negpos,
           )
         ],
       ),
@@ -25,8 +33,14 @@ class CodificacionesScreen extends StatelessWidget {
 
 class _Codificaciones extends StatelessWidget {
   final String titulo;
+  final bool rcero;
+  final bool negpos;
 
-  const _Codificaciones({super.key, required this.titulo});
+  const _Codificaciones(
+      {super.key,
+      required this.titulo,
+      required this.rcero,
+      required this.negpos});
 
   @override
   Widget build(BuildContext context) {
@@ -65,8 +79,15 @@ class _Codificaciones extends StatelessWidget {
             ],
           ),
           _Cuadrotexto(),
-          _CuadroRZ(),
-          _CuadroPN(),
+          _CuadroRZ(
+            titulo: titulo,
+            ncero: this.rcero,
+            negpos: this.negpos,
+          ),
+          _CuadroPN(
+            titulo: titulo,
+            negpos: negpos,
+          ),
           SizedBox(
             height: 30,
           ),
@@ -128,13 +149,26 @@ class _Cuadrotexto extends StatelessWidget {
 }
 
 class _CuadroRZ extends StatefulWidget {
+  final String titulo;
+  final bool ncero;
+  final bool negpos;
+
+  const _CuadroRZ(
+      {super.key,
+      required this.titulo,
+      required this.ncero,
+      required this.negpos});
   @override
-  State<_CuadroRZ> createState() => _CuadroRZState();
+  State<_CuadroRZ> createState() =>
+      _CuadroRZState(titulo: titulo, ncero, negpos);
 }
 
 class _CuadroRZState extends State<_CuadroRZ> {
-  bool rz = true;
   bool nrz = false;
+  final String titulo;
+  bool ncero;
+  bool negpos;
+  _CuadroRZState(this.ncero, this.negpos, {required this.titulo});
 
   void alertaMensaje(BuildContext context, Text titulo, Text mensaje) {
     showDialog(
@@ -187,20 +221,29 @@ class _CuadroRZState extends State<_CuadroRZ> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                  'RZ-L',
-                  style: TextStyle(
-                      color: Color(0xffB6B7BB),
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold),
-                ),  
+                'RZ-L',
+                style: TextStyle(
+                    color: Color(0xffB6B7BB),
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold),
+              ),
               Switch(
                   activeColor: Color(0xffB6B7BB),
                   activeTrackColor: Color(0xff87E7E4),
-                  value: this.rz,
+                  value: this.ncero,
                   onChanged: (value) {
                     setState(() {
-                      this.rz = value!;
-                      nrz = false;
+                      if (this.titulo == 'Manchester' ||
+                          this.titulo == 'Manchester diferencial') {
+                        null;
+                      } else {
+                        this.ncero = value!;
+                        if (ncero) {
+                          nrz = false;
+                        } else {
+                          nrz = true;
+                        }
+                      }
                     });
                   })
             ],
@@ -208,21 +251,30 @@ class _CuadroRZState extends State<_CuadroRZ> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-                Text(
-                  'NRZ-L',
-                  style: TextStyle(
-                      color: Color(0xffB6B7BB),
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold),
-                ),
+              Text(
+                'NRZ-L',
+                style: TextStyle(
+                    color: Color(0xffB6B7BB),
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold),
+              ),
               Switch(
                   activeColor: Color(0xffB6B7BB),
                   activeTrackColor: Color(0xff87E7E4),
                   value: this.nrz,
                   onChanged: (value) {
                     setState(() {
-                      this.nrz = value!;
-                      rz = false;
+                      if (this.titulo == 'Manchester' ||
+                          this.titulo == 'Manchester diferencial') {
+                        null;
+                      } else {
+                        this.nrz = value!;
+                        if (nrz) {
+                          ncero = false;
+                        } else {
+                          ncero = true;
+                        }
+                      }
                     });
                   })
             ],
@@ -253,13 +305,20 @@ class _CuadroRZState extends State<_CuadroRZ> {
 }
 
 class _CuadroPN extends StatefulWidget {
+  final String titulo;
+  final bool negpos;
+
+  const _CuadroPN({super.key, required this.titulo, required this.negpos});
   @override
-  State<_CuadroPN> createState() => _CuadroPNState();
+  State<_CuadroPN> createState() => _CuadroPNState(titulo, negpos);
 }
 
 class _CuadroPNState extends State<_CuadroPN> {
-  bool negativo = true;
   bool positivo = false;
+  final String titulo;
+  bool negpos;
+
+  _CuadroPNState(this.titulo, this.negpos);
 
   void alertaMensaje(BuildContext context, Text titulo, Text mensaje) {
     showDialog(
@@ -309,24 +368,33 @@ class _CuadroPNState extends State<_CuadroPN> {
       child: Column(
         children: [
           Row(
-             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '   Negativo',
+                'Negativo',
                 style: TextStyle(
                     color: Color(0xffB6B7BB),
                     fontSize: 25,
                     fontWeight: FontWeight.bold),
               ),
-              
               Checkbox(
                   checkColor: Colors.grey,
                   activeColor: Color(0xff87E7E4),
-                  value: this.negativo,
+                  value: this.negpos,
                   onChanged: (value) {
                     setState(() {
-                      this.negativo = value!;
-                      this.positivo = false;
+                      if (this.titulo == 'Manchester' ||
+                          this.titulo == 'Manchester diferencial' || this.titulo == 'Polar') {
+                        null;
+                      } else{
+                         this.negpos = value!;
+                        if (negpos) {
+                          this.positivo = false;
+                        } else {
+                          this.negpos = true;
+                        }
+                      }
+                     
                     });
                   })
             ],
@@ -335,21 +403,30 @@ class _CuadroPNState extends State<_CuadroPN> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '   Positivo',
+                'Positivo',
                 style: TextStyle(
                     color: Color(0xffB6B7BB),
                     fontSize: 25,
                     fontWeight: FontWeight.bold),
               ),
-              
               Checkbox(
                   checkColor: Colors.grey,
                   activeColor: Color(0xff87E7E4),
                   value: this.positivo,
                   onChanged: (value) {
                     setState(() {
-                      this.positivo = value!;
-                      this.negativo = false;
+                      if (this.titulo == 'Manchester' ||
+                          this.titulo == 'Manchester diferencial' || this.titulo == 'Polar') {
+                        null;
+                      } else{
+                          this.positivo = value!;
+                      if (positivo) {
+                        this.negpos = false;
+                      } else {
+                        this.positivo = true;
+                      }
+                      }
+                    
                     });
                   })
             ],
@@ -364,7 +441,8 @@ class _CuadroPNState extends State<_CuadroPN> {
                         'Negativo/Positivo',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      Text('En cualquiera de los dos casos puede tomar el valor de cero y cunado es positivo: en la gráfica toma valores positivos; en cambio negativos: toma valores en la gráfica negativos.')),
+                      Text(
+                          'En cualquiera de los dos casos puede tomar el valor de cero y cunado es positivo: en la gráfica toma valores positivos; en cambio negativos: toma valores en la gráfica negativos.')),
                   icon: Icon(
                     Icons.help_outline,
                     color: Color(0xffB6B7BB),
@@ -388,8 +466,8 @@ class _botton extends StatelessWidget {
         children: [
           MaterialButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Grafica()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Grafica()));
             },
             height: 55,
             shape:

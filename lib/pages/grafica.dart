@@ -47,7 +47,7 @@ class _TarjetaGraficaState extends State<_TarjetaGrafica> {
                 },
               ),
               SizedBox(
-                height: 90,
+                height: 50,
               ),
             ],
          ),
