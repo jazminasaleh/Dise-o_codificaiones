@@ -52,7 +52,7 @@ class _Codificaciones extends StatelessWidget {
             children: [
               IconButton(
                 alignment: Alignment.topLeft,
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back,
                   color: Color(0xff06F7074),
                   size: 35,
@@ -62,7 +62,7 @@ class _Codificaciones extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 90,
               ),
             ],
@@ -71,7 +71,7 @@ class _Codificaciones extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(this.titulo,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 30,
                     color: Colors.white,
@@ -88,7 +88,7 @@ class _Codificaciones extends StatelessWidget {
             titulo: titulo,
             negpos: negpos,
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           _botton()
@@ -112,13 +112,13 @@ class _Cuadrotexto extends StatelessWidget {
           borderRadius: BorderRadius.circular(20)),
       child: Column(
         children: [
-          Center(
+          const Center(
             child: Text(
               'Ingresar texto',
               style: TextStyle(fontSize: 15, color: Color(0xffB6B7BB)),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           TextField(
@@ -138,7 +138,7 @@ class _Cuadrotexto extends StatelessWidget {
                 hintText: '',
                 hintStyle: TextStyle(color: Color(0xffB6B7BB))),
             onChanged: (texto) {
-              print('$texto');
+              
             },
             maxLines: 4,
           )
@@ -187,7 +187,7 @@ class _CuadroRZState extends State<_CuadroRZ> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 mensaje,
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
               ],
@@ -220,7 +220,7 @@ class _CuadroRZState extends State<_CuadroRZ> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 'RZ-L',
                 style: TextStyle(
                     color: Color(0xffB6B7BB),
@@ -251,7 +251,7 @@ class _CuadroRZState extends State<_CuadroRZ> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 'NRZ-L',
                 style: TextStyle(
                     color: Color(0xffB6B7BB),
@@ -285,13 +285,13 @@ class _CuadroRZState extends State<_CuadroRZ> {
               IconButton(
                   onPressed: () => alertaMensaje(
                       context,
-                      Text(
+                      const Text(
                         'RZ-L/NRZ-L',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      Text(
+                      const Text(
                           'RZ(Retourn to zero): se tiene tension positiva en una parte de la duración de un 1 lógico, y cero durante el resto del tiempo. y NRZ-L (código NonReturn to Zero Level): un 1 lógico es un pulso de tensión, minetras que un 0 lógico es la ausencia de dicho pulso de tensión.')),
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.help_outline,
                     color: Color(0xffB6B7BB),
                     size: 25,
@@ -337,7 +337,7 @@ class _CuadroPNState extends State<_CuadroPN> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 mensaje,
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
               ],
@@ -370,7 +370,7 @@ class _CuadroPNState extends State<_CuadroPN> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 'Negativo',
                 style: TextStyle(
                     color: Color(0xffB6B7BB),
@@ -402,7 +402,7 @@ class _CuadroPNState extends State<_CuadroPN> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 'Positivo',
                 style: TextStyle(
                     color: Color(0xffB6B7BB),
@@ -437,13 +437,13 @@ class _CuadroPNState extends State<_CuadroPN> {
               IconButton(
                   onPressed: () => alertaMensaje(
                       context,
-                      Text(
+                      const Text(
                         'Negativo/Positivo',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      Text(
+                      const Text(
                           'En cualquiera de los dos casos puede tomar el valor de cero y cunado es positivo: en la gráfica toma valores positivos; en cambio negativos: toma valores en la gráfica negativos.')),
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.help_outline,
                     color: Color(0xffB6B7BB),
                     size: 25,
@@ -475,8 +475,8 @@ class _botton extends StatelessWidget {
             disabledColor: Colors.grey,
             elevation: 0,
             color: Colors.amber,
-            child: Container(
-              child: Text(
+            child: Container (
+              child: const Text(
                 '  Enviar  ',
                 style: TextStyle(fontSize: 30, color: Colors.black),
               ),
