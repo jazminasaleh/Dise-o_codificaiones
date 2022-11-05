@@ -32,10 +32,23 @@ class _TarjetaGraficaState extends State<_TarjetaGrafica> {
     return SingleChildScrollView(
       child: Column(
         children: [
+          SizedBox(
+                height: 40,
+              ),
          Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
+                icon: Icon(
+                  Icons.arrow_back_sharp,
+                  color: Color(0xff06F7074),
+                  size: 40,
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              IconButton(
                 icon: Icon(
                   Icons.home,
                   color: Color(0xff06F7074),
@@ -46,12 +59,9 @@ class _TarjetaGraficaState extends State<_TarjetaGrafica> {
                       MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
               ),
-              SizedBox(
-                height: 50,
-              ),
             ],
          ),
-          Column(
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: 50,),
@@ -63,12 +73,12 @@ class _TarjetaGraficaState extends State<_TarjetaGrafica> {
                   ))
             ],
           ),
-          Column(
+          Row(
             children: [
               Container(
                margin: EdgeInsets.all(15),
                padding: EdgeInsets.all(20),
-               height: 300,
+               height: 400,
                width: MediaQuery.of(context).size.width-40,
                decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.5),

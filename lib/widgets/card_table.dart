@@ -16,8 +16,8 @@ class CradTable extends StatelessWidget {
             desc:
                 'En este caso la señal toma valores positivos para un 1 lógico y negativos para un 0 lógico pero nunca toma el valor 0.',
             tipo: 'Polar',
+             rcero: true,
              negpos: false, 
-             rcero: true
           )
         ]),
         TableRow(children: [
@@ -102,8 +102,9 @@ class _SigleCard extends StatelessWidget {
           ),
           Expanded(
             child: Text(desc,
+            maxLines: 5,
                 textAlign: TextAlign.justify,
-                style: TextStyle(color: Colors.white, fontSize: 15)),
+                style: TextStyle(color: Colors.white, fontSize: 15, overflow: TextOverflow.ellipsis)),
           ),
           SizedBox(
             height: 10,

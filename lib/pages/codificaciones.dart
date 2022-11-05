@@ -21,9 +21,9 @@ class CodificacionesScreen extends StatelessWidget {
         children: [
           Background(),
           _Codificaciones(
-            titulo: this.titulo,
-            negpos: this.negpos,
-            rcero: this.negpos,
+            titulo: titulo,
+            negpos: negpos,
+            rcero: rcero,
           )
         ],
       ),
@@ -31,7 +31,7 @@ class CodificacionesScreen extends StatelessWidget {
   }
 }
 
-class _Codificaciones extends StatelessWidget {
+class _Codificaciones extends StatefulWidget {
   final String titulo;
   final bool rcero;
   final bool negpos;
@@ -43,56 +43,68 @@ class _Codificaciones extends StatelessWidget {
       required this.negpos});
 
   @override
+  State<_Codificaciones> createState() => _CodificacionesState();
+}
+
+class _CodificacionesState extends State<_Codificaciones> {
+  @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              IconButton(
-                alignment: Alignment.topLeft,
-                icon: const Icon(
-                  Icons.arrow_back,
-                  color: Color(0xff06F7074),
-                  size: 35,
+    //*Para oculatr el teclado
+    return GestureDetector(
+      onTap: () {
+        final FocusScopeNode focus = FocusScope.of(context);
+        if (!focus.hasPrimaryFocus && focus.hasFocus) {
+          FocusManager.instance.primaryFocus!.unfocus();
+        }
+      },
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 40,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                IconButton(
+                  alignment: Alignment.topLeft,
+                  icon: const Icon(
+                    Icons.arrow_back,
+                    color: Color(0xff06F7074),
+                    size: 35,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                 ),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
-                },
-              ),
-              const SizedBox(
-                height: 90,
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(this.titulo,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                    color: Colors.white,
-                  ))
-            ],
-          ),
-          _Cuadrotexto(),
-          _CuadroRZ(
-            titulo: titulo,
-            ncero: this.rcero,
-            negpos: this.negpos,
-          ),
-          _CuadroPN(
-            titulo: titulo,
-            negpos: negpos,
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          _botton()
-        ],
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(this.widget.titulo,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                      color: Colors.white,
+                    ))
+              ],
+            ),
+            _Cuadrotexto(),
+            _CuadroRZ(
+              titulo: widget.titulo,
+              ncero: widget.rcero,
+            ),
+            _CuadroPN(
+              titulo: widget.titulo,
+              negpos: widget.negpos,
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            const _botton()
+          ],
+        ),
       ),
     );
   }
@@ -103,9 +115,10 @@ class _Cuadrotexto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //*Para ocultar el teclado
     return Container(
-      margin: EdgeInsets.all(15),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.all(15),
+      padding: const EdgeInsets.all(20),
       height: 200,
       decoration: BoxDecoration(
           color: Colors.black.withOpacity(0.5),
@@ -122,12 +135,14 @@ class _Cuadrotexto extends StatelessWidget {
             height: 10,
           ),
           TextField(
-            style: TextStyle(color: Color(0xffB6B7BB)),
+            autocorrect: false,
+            keyboardType: TextInputType.name,
+            style: const TextStyle(color: Color(0xffB6B7BB)),
             decoration: InputDecoration(
                 border:
                     //*Cuando se esta
                     OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey, width: 5.0),
+                  borderSide: const BorderSide(color: Colors.grey, width: 5.0),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 //*Cuando no se esta escribiendo en texto
@@ -137,9 +152,7 @@ class _Cuadrotexto extends StatelessWidget {
                 ),
                 hintText: '',
                 hintStyle: TextStyle(color: Color(0xffB6B7BB))),
-            onChanged: (texto) {
-              
-            },
+            onChanged: (texto) {},
             maxLines: 4,
           )
         ],
@@ -151,24 +164,22 @@ class _Cuadrotexto extends StatelessWidget {
 class _CuadroRZ extends StatefulWidget {
   final String titulo;
   final bool ncero;
-  final bool negpos;
 
-  const _CuadroRZ(
-      {super.key,
-      required this.titulo,
-      required this.ncero,
-      required this.negpos});
+  const _CuadroRZ({
+    super.key,
+    required this.titulo,
+    required this.ncero,
+  });
   @override
-  State<_CuadroRZ> createState() =>
-      _CuadroRZState(titulo: titulo, ncero, negpos);
+  State<_CuadroRZ> createState() => _CuadroRZState(titulo: titulo, ncero);
 }
 
 class _CuadroRZState extends State<_CuadroRZ> {
   bool nrz = false;
   final String titulo;
   bool ncero;
-  bool negpos;
-  _CuadroRZState(this.ncero, this.negpos, {required this.titulo});
+
+  _CuadroRZState(this.ncero, {required this.titulo});
 
   void alertaMensaje(BuildContext context, Text titulo, Text mensaje) {
     showDialog(
@@ -384,17 +395,17 @@ class _CuadroPNState extends State<_CuadroPN> {
                   onChanged: (value) {
                     setState(() {
                       if (this.titulo == 'Manchester' ||
-                          this.titulo == 'Manchester diferencial' || this.titulo == 'Polar') {
+                          this.titulo == 'Manchester diferencial' ||
+                          this.titulo == 'Polar') {
                         null;
-                      } else{
-                         this.negpos = value!;
+                      } else {
+                        this.negpos = value!;
                         if (negpos) {
                           this.positivo = false;
                         } else {
                           this.negpos = true;
                         }
                       }
-                     
                     });
                   })
             ],
@@ -416,17 +427,17 @@ class _CuadroPNState extends State<_CuadroPN> {
                   onChanged: (value) {
                     setState(() {
                       if (this.titulo == 'Manchester' ||
-                          this.titulo == 'Manchester diferencial' || this.titulo == 'Polar') {
+                          this.titulo == 'Manchester diferencial' ||
+                          this.titulo == 'Polar') {
                         null;
-                      } else{
-                          this.positivo = value!;
-                      if (positivo) {
-                        this.negpos = false;
                       } else {
-                        this.positivo = true;
+                        this.positivo = value!;
+                        if (positivo) {
+                          this.negpos = false;
+                        } else {
+                          this.positivo = true;
+                        }
                       }
-                      }
-                    
                     });
                   })
             ],
@@ -475,7 +486,7 @@ class _botton extends StatelessWidget {
             disabledColor: Colors.grey,
             elevation: 0,
             color: Colors.amber,
-            child: Container (
+            child: Container(
               child: const Text(
                 '  Enviar  ',
                 style: TextStyle(fontSize: 30, color: Colors.black),
