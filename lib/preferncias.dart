@@ -1,7 +1,7 @@
 class Preferencias {
   String texto;
-  bool negpos;
+  bool negativoPositivo;
   bool rz;
 
-  Preferencias(this.texto, this.negpos, this.rz);
+  Preferencias(this.texto, this.negativoPositivo, this.rz);
 }

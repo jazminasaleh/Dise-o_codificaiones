@@ -6,14 +6,14 @@ import '../widgets/background.dart';
 
 class CodificacionesScreen extends StatefulWidget {
   String titulo;
-  bool rcero;
-  bool negpos;
+  bool retornoCero;
+  bool negativoopostitivo;
 
   CodificacionesScreen({
     super.key,
     required this.titulo,
-    required this.rcero,
-    required this.negpos,
+    required this.retornoCero,
+    required this.negativoopostitivo,
   });
 
   @override
@@ -171,7 +171,7 @@ class _CodificacionesScreenState extends State<CodificacionesScreen> {
                             Switch(
                                 activeColor: Color(0xffB6B7BB),
                                 activeTrackColor: Color(0xff87E7E4),
-                                value: widget.rcero,
+                                value: widget.retornoCero,
                                 onChanged: (value) {
                                   setState(() {
                                     if (widget.titulo == 'Manchester' ||
@@ -179,8 +179,8 @@ class _CodificacionesScreenState extends State<CodificacionesScreen> {
                                             'Manchester diferencial') {
                                       null;
                                     } else {
-                                      widget.rcero = value!;
-                                      if (widget.rcero) {
+                                      widget.retornoCero = value!;
+                                      if (widget.retornoCero) {
                                         nrz = false;
                                       } else {
                                         nrz = true;
@@ -213,9 +213,9 @@ class _CodificacionesScreenState extends State<CodificacionesScreen> {
                                     } else {
                                       this.nrz = value!;
                                       if (nrz) {
-                                        widget.rcero = false;
+                                        widget.retornoCero = false;
                                       } else {
-                                        widget.rcero = true;
+                                        widget.retornoCero = true;
                                       }
                                     }
                                   });
@@ -267,7 +267,7 @@ class _CodificacionesScreenState extends State<CodificacionesScreen> {
                             Checkbox(
                                 checkColor: Colors.grey,
                                 activeColor: Color(0xff87E7E4),
-                                value: widget.negpos,
+                                value: widget.negativoopostitivo,
                                 onChanged: (value) {
                                   setState(() {
                                     if (widget.titulo == 'Manchester' ||
@@ -276,11 +276,11 @@ class _CodificacionesScreenState extends State<CodificacionesScreen> {
                                         widget.titulo == 'Polar') {
                                       null;
                                     } else {
-                                      widget.negpos = value!;
-                                      if (widget.negpos) {
+                                      widget.negativoopostitivo = value!;
+                                      if (widget.negativoopostitivo) {
                                         this.positivo = false;
                                       } else {
-                                        widget.negpos = true;
+                                        widget.negativoopostitivo = true;
                                       }
                                     }
                                   });
@@ -311,7 +311,7 @@ class _CodificacionesScreenState extends State<CodificacionesScreen> {
                                     } else {
                                       this.positivo = value!;
                                       if (positivo) {
-                                        widget.negpos = false;
+                                        widget.negativoopostitivo = false;
                                       } else {
                                         this.positivo = true;
                                       }
@@ -352,8 +352,9 @@ class _CodificacionesScreenState extends State<CodificacionesScreen> {
                         MaterialButton(
                           onPressed: () {
                             Navigator.pushNamed(context, 'grafica',
-                            //*Cmabira titulo
-                            arguments: Preferencias(widget.titulo, widget.negpos, widget.rcero));
+                                //*Cmabira titulo
+                                arguments: Preferencias(widget.titulo,
+                                    widget.negativoopostitivo, widget.retornoCero));
                           },
                           height: 55,
                           shape: RoundedRectangleBorder(

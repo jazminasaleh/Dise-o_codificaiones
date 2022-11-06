@@ -15,8 +15,8 @@ class CradTable extends StatelessWidget {
             desc:
                 'En este caso la señal toma valores positivos para un 1 lógico y negativos para un 0 lógico pero nunca toma el valor 0.',
             tipo: 'Polar',
-            rcero: true,
-            negpos: false,
+            retornoacero: true,
+            negativoPositivo: false,
             texto: '',
           )
         ]),
@@ -26,8 +26,8 @@ class CradTable extends StatelessWidget {
               desc:
                   'En este caso un 1 siempre toma una polaridad positiva o negativa, mientras que un 0 vale siempre 0.',
               tipo: 'Unipolar',
-              negpos: true,
-              rcero: true,
+              negativoPositivo: true,
+              retornoacero: true,
               texto: '',
               )
         ]),
@@ -37,8 +37,8 @@ class CradTable extends StatelessWidget {
               desc:
                   'En este caso un dígito toma valor con polaridad alternada mientras que el otro permance simepre en 0.',
               tipo: 'Bipolar',
-              negpos: true,
-              rcero: true,
+              negativoPositivo: true,
+              retornoacero: true,
               texto: '',
               )
         ]),
@@ -48,8 +48,8 @@ class CradTable extends StatelessWidget {
               desc:
                   'En este código siempre hay una transición en la mitad del intervalo de duración de los bits. Cada transición positiva representa un 1 y cada transición negativa representa un 0.',
               tipo: 'Manchester',
-              negpos: false,
-              rcero: false,
+              negativoPositivo: false,
+              retornoacero: false,
               texto: '',
               )
         ]),
@@ -59,8 +59,8 @@ class CradTable extends StatelessWidget {
             desc:
                 'En la descodificación se detecta el estado de cada intervalo y se lo compara con el estado del intervalo anterior. Si ocurrió un cambio de la señal se descodifica un 1 de lo contrario 0.',
             tipo: 'Manchester diferncial',
-            negpos: false,
-            rcero: false,
+            negativoPositivo: false,
+            retornoacero: false,
             texto: '',
           )
         ])
@@ -73,8 +73,8 @@ class _SigleCard extends StatelessWidget {
   final String titulo;
   final String desc;
   final String tipo;
-  final bool rcero;
-  final bool negpos;
+  final bool retornoacero;
+  final bool negativoPositivo;
   final String texto;
 
   const _SigleCard(
@@ -82,8 +82,8 @@ class _SigleCard extends StatelessWidget {
       required this.titulo,
       required this.desc,
       required this.tipo,
-      required this.rcero,
-      required this.negpos,
+      required this.retornoacero,
+      required this.negativoPositivo,
       required this.texto});
   @override
   Widget build(BuildContext context) {
@@ -133,9 +133,9 @@ class _SigleCard extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => CodificacionesScreen(
                                 titulo: this.titulo,
-                                negpos: this.negpos,
-                                rcero: this.rcero,
-                                
+                                negativoopostitivo: this.negativoPositivo,
+                                retornoCero: this.retornoacero,
+
                               )));
                 },
                 height: 40,

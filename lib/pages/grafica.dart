@@ -2,6 +2,7 @@ import 'package:diseno_codificaciones/pages/codificaciones.dart';
 import 'package:diseno_codificaciones/preferncias.dart';
 import 'package:diseno_codificaciones/widgets/background.dart';
 import 'package:flutter/material.dart';
+
 //*Donde se muestra la grafica
 class Grafica extends StatelessWidget {
   const Grafica({super.key});
@@ -37,7 +38,7 @@ class _TarjetaGraficaState extends State<_TarjetaGrafica> {
           SizedBox(
             height: 40,
           ),
-          //*Parte de los botones 
+          //*Parte de los botones
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -58,8 +59,9 @@ class _TarjetaGraficaState extends State<_TarjetaGrafica> {
                   size: 40,
                 ),
                 onPressed: () {
-                  print(arguments.negpos);
+                  print(arguments.negativoPositivo);
                   print(arguments.rz);
+                  print(arguments.texto);
                   /*Navigator.push(context,
                       MaterialPageRoute(builder: (context) => HomeScreen()));*/
                 },
@@ -81,7 +83,7 @@ class _TarjetaGraficaState extends State<_TarjetaGrafica> {
                   ))
             ],
           ),
-          //*Se coloca la gráfica 
+          //*Se coloca la gráfica
           Row(
             children: [
               Container(
