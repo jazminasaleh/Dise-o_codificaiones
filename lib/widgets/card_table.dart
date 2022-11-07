@@ -2,6 +2,7 @@ import 'package:diseno_codificaciones/pages/codificaciones.dart';
 
 import 'package:flutter/material.dart';
 
+//*Trajetas de lad definiciones de cada una de las codificaciones
 class CradTable extends StatelessWidget {
   const CradTable({super.key});
 
@@ -69,6 +70,7 @@ class CradTable extends StatelessWidget {
   }
 }
 
+//*Trajeta individual
 class _SigleCard extends StatelessWidget {
   final String titulo;
   final String desc;

@@ -3,7 +3,9 @@ import 'package:diseno_codificaciones/preferncias.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/background.dart';
-
+//*Pantalla donde el usuario digista el texto que desea convertir
+//*Elegir si desea retorno a cero  o no
+//*Elegi si lo desea negativo o positivo
 class CodificacionesScreen extends StatefulWidget {
   String titulo;
   bool retornoCero;
@@ -23,6 +25,9 @@ class CodificacionesScreen extends StatefulWidget {
 class _CodificacionesScreenState extends State<CodificacionesScreen> {
   bool nrz = false;
   bool positivo = false;
+  final frase = TextEditingController();
+  String textoIngresado = '';
+  //*La ventana que muestra que es RZ NRZ / positivo Negativo
   void alertaMensaje(BuildContext context, Text titulo, Text mensaje) {
     showDialog(
         //poder cerra el cuadro de error precionando desde afuera
@@ -105,6 +110,7 @@ class _CodificacionesScreenState extends State<CodificacionesScreen> {
                           ))
                     ],
                   ),
+                  //*Para ingresar texto
                   Container(
                     margin: const EdgeInsets.all(15),
                     padding: const EdgeInsets.all(20),
@@ -125,6 +131,7 @@ class _CodificacionesScreenState extends State<CodificacionesScreen> {
                           height: 10,
                         ),
                         TextField(
+                          controller: frase,
                           autocorrect: false,
                           keyboardType: TextInputType.name,
                           style: const TextStyle(color: Color(0xffB6B7BB)),
@@ -351,10 +358,14 @@ class _CodificacionesScreenState extends State<CodificacionesScreen> {
                       children: [
                         MaterialButton(
                           onPressed: () {
+                            textoIngresado = frase.text;
                             Navigator.pushNamed(context, 'grafica',
                                 //*Cmabira titulo
-                                arguments: Preferencias(widget.titulo,
-                                    widget.negativoopostitivo, widget.retornoCero));
+                                arguments: Preferencias(
+                                   texto:  textoIngresado, 
+                                   titulo:  widget.titulo, 
+                                   negativoPositivo:  widget.negativoopostitivo, 
+                                   rz:  widget.retornoCero,));
                           },
                           height: 55,
                           shape: RoundedRectangleBorder(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+//*El color de fondo de la app
 class Background extends StatelessWidget {
   
   @override

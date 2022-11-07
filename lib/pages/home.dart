@@ -2,7 +2,7 @@ import 'package:diseno_codificaciones/widgets/background.dart';
 import 'package:diseno_codificaciones/widgets/card_table.dart';
 
 import 'package:flutter/material.dart';
-
+//*Pantalla de inicio de la app
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 

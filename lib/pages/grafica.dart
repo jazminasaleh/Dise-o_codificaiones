@@ -3,6 +3,8 @@ import 'package:diseno_codificaciones/preferncias.dart';
 import 'package:diseno_codificaciones/widgets/background.dart';
 import 'package:flutter/material.dart';
 
+import 'home.dart';
+
 //*Donde se muestra la grafica
 class Grafica extends StatelessWidget {
   const Grafica({super.key});
@@ -30,6 +32,7 @@ class _TarjetaGrafica extends StatefulWidget {
 class _TarjetaGraficaState extends State<_TarjetaGrafica> {
   @override
   Widget build(BuildContext context) {
+    //*Recibir los argumentso de Prefrencias
     final Preferencias arguments =
         ModalRoute.of(context)?.settings.arguments as Preferencias;
     return SingleChildScrollView(
@@ -59,11 +62,13 @@ class _TarjetaGraficaState extends State<_TarjetaGrafica> {
                   size: 40,
                 ),
                 onPressed: () {
+                  print(arguments.titulo);
                   print(arguments.negativoPositivo);
                   print(arguments.rz);
                   print(arguments.texto);
-                  /*Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));*/
+
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
               ),
             ],
