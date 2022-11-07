@@ -1,7 +1,6 @@
-import 'package:diseno_codificaciones/pages/grafica.dart';
 import 'package:diseno_codificaciones/preferncias.dart';
 import 'package:flutter/material.dart';
-
+import 'package:indent/indent.dart';
 import '../widgets/background.dart';
 //*Pantalla donde el usuario digista el texto que desea convertir
 //*Elegir si desea retorno a cero  o no
