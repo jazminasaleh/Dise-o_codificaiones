@@ -99,6 +99,7 @@ class _TarjetaGraficaState extends State<_TarjetaGrafica> {
                 decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(20)),
+                //* Aqui va la grafica 
               ),
             ],
           )
