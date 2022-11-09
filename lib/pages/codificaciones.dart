@@ -87,10 +87,10 @@ class _CodificacionesScreenState extends State<CodificacionesScreen> {
                     children: [
                       IconButton(
                         alignment: Alignment.topLeft,
-                        icon: const Icon(
-                          Icons.arrow_back,
+                         icon: Icon(
+                          Icons.arrow_back_sharp,
                           color: Color(0xff06F7074),
-                          size: 35,
+                          size: 40,
                         ),
                         onPressed: () {
                           Navigator.pop(context);

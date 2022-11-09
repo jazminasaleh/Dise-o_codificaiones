@@ -100,6 +100,12 @@ class _TarjetaGraficaState extends State<_TarjetaGrafica> {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(20)),
                 //* Aqui va la grafica 
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(arguments.titulo, textDirection: TextDirection.ltr,style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white, ),),
+                  ],
+                ),
               ),
             ],
           )

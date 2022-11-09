@@ -9,7 +9,7 @@ class CradTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Table(
-      children: const [
+      children: [
         TableRow(children: [
           _SigleCard(
             titulo: 'Polar',
@@ -23,25 +23,25 @@ class CradTable extends StatelessWidget {
         ]),
         TableRow(children: [
           _SigleCard(
-              titulo: 'Unipolar',
-              desc:
-                  'En este caso un 1 siempre toma una polaridad positiva o negativa, mientras que un 0 vale siempre 0.',
-              tipo: 'Unipolar',
-              negativoPositivo: true,
-              retornoacero: true,
-              texto: '',
-              )
+            titulo: 'Unipolar',
+            desc:
+                'En este caso un 1 siempre toma una polaridad positiva o negativa, mientras que un 0 vale siempre 0.',
+            tipo: 'Unipolar',
+            negativoPositivo: true,
+            retornoacero: true,
+            texto: '',
+          )
         ]),
         TableRow(children: [
           _SigleCard(
-              titulo: 'Bipolar',
-              desc:
-                  'En este caso un dígito toma valor con polaridad alternada mientras que el otro permance simepre en 0.',
-              tipo: 'Bipolar',
-              negativoPositivo: true,
-              retornoacero: true,
-              texto: '',
-              )
+            titulo: 'Bipolar',
+            desc:
+                'En este caso un dígito toma valor con polaridad alternada mientras que el otro permance simepre en 0.',
+            tipo: 'Bipolar',
+            negativoPositivo: true,
+            retornoacero: true,
+            texto: '',
+          )
         ]),
         TableRow(children: [
           _SigleCard(
@@ -56,14 +56,14 @@ class CradTable extends StatelessWidget {
         ]),
         TableRow(children: [
           _SigleCard(
-              titulo: 'Manchester',
-              desc:
-                  'En este código siempre hay una transición en la mitad del intervalo de duración de los bits. Cada transición positiva representa un 1 y cada transición negativa representa un 0.',
-              tipo: 'Manchester',
-              negativoPositivo: false,
-              retornoacero: false,
-              texto: '',
-              )
+            titulo: 'Manchester',
+            desc:
+                'En este código siempre hay una transición en la mitad del intervalo de duración de los bits. Cada transición positiva representa un 1 y cada transición negativa representa un 0.',
+            tipo: 'Manchester',
+            negativoPositivo: false,
+            retornoacero: false,
+            texto: '',
+          )
         ]),
         TableRow(children: [
           _SigleCard(
@@ -74,6 +74,22 @@ class CradTable extends StatelessWidget {
             negativoPositivo: false,
             retornoacero: false,
             texto: '',
+          )
+        ]),
+        TableRow(children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'MODULACIÓNES',
+                textDirection: TextDirection.ltr,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  color: Colors.white,
+                ),
+              ),
+            ],
           )
         ]),
         TableRow(children: [
@@ -92,39 +108,56 @@ class CradTable extends StatelessWidget {
             texto: '',
           )
         ]),
-         TableRow(children: [
-         _SigleCardSinBoton(
+        TableRow(children: [
+          _SigleCardSinBoton(
             titulo: 'ASK',
             desc:
                 'Amplitudes-shift keying, traducido al español desplazamiento de amplitud, es una modulación de amplitud donde la señal moduladora (datos) es digital.',
             texto: '',
           )
         ]),
-         TableRow(children: [
-           _SigleCardSinBoton(
+        TableRow(children: [
+          _SigleCardSinBoton(
             titulo: 'FSK',
             desc:
                 'Frequency-shift keying, ya en español Desplazamiento de frecuencia, es una modulación de frecuencia donde la señal moduladora (datos) es digital.',
             texto: '',
           )
         ]),
-         TableRow(children: [
-           _SigleCardSinBoton(
+        TableRow(children: [
+          _SigleCardSinBoton(
             titulo: 'PSK',
             desc:
                 'Phase-shift keying, lo que quiere decir en español desplazamiento de fase, es una modulación de fase donde la señal moduladora (datos) es digital.',
             texto: '',
           )
         ]),
-         TableRow(children: [
-           _SigleCardSinBoton(
+        TableRow(children: [
+          _SigleCardSinBoton(
             titulo: 'PCM',
             desc:
                 'Pulse Code Modulation, traduce al español modulación de pulsos codificados, en este caso se debe realizar un muestreo de la señal, cuantificar la misma y codificarla.',
             texto: '',
           )
         ]),
-        
+        TableRow(children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Tomado de: Tema_6._Representacion_de_Informacion',
+                textDirection: TextDirection.ltr,
+                style: TextStyle(
+                  fontSize: 13,
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(
+                height: 100,
+              )
+            ],
+          )
+        ]),
       ],
     );
   }
@@ -197,7 +230,6 @@ class _SigleCard extends StatelessWidget {
                                 titulo: this.titulo,
                                 negativoopostitivo: this.negativoPositivo,
                                 retornoCero: this.retornoacero,
-
                               )));
                 },
                 height: 40,
