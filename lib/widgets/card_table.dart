@@ -45,6 +45,17 @@ class CradTable extends StatelessWidget {
         ]),
         TableRow(children: [
           _SigleCard(
+            titulo: 'Diferencial',
+            desc:
+                'En una codificación diferncial en lugar de dterminar el valor absoluto, las señales se decodifica comparando la polaridad de los bits con los bits adyacentes.',
+            tipo: 'Manchester diferncial',
+            negativoPositivo: false,
+            retornoacero: false,
+            texto: '',
+          )
+        ]),
+        TableRow(children: [
+          _SigleCard(
               titulo: 'Manchester',
               desc:
                   'En este código siempre hay una transición en la mitad del intervalo de duración de los bits. Cada transición positiva representa un 1 y cada transición negativa representa un 0.',
@@ -64,7 +75,56 @@ class CradTable extends StatelessWidget {
             retornoacero: false,
             texto: '',
           )
-        ])
+        ]),
+        TableRow(children: [
+          _SigleCardSinBoton(
+            titulo: 'AM',
+            desc:
+                'Tambien conocida como modulación de amplitud, este es un caso de modulación donde tanto las señales de trasmisión como las señales de datos son analógicas.',
+            texto: '',
+          )
+        ]),
+        TableRow(children: [
+          _SigleCardSinBoton(
+            titulo: 'FM',
+            desc:
+                'La cual significa modulación de frecuencia, eset es un caso de modulación donde tanto las señales de transmisión como las señales de datos son analógicas y es un tipi de modulación exponencial.',
+            texto: '',
+          )
+        ]),
+         TableRow(children: [
+         _SigleCardSinBoton(
+            titulo: 'ASK',
+            desc:
+                'Amplitudes-shift keying, traducido al español desplazamiento de amplitud, es una modulación de amplitud donde la señal moduladora (datos) es digital.',
+            texto: '',
+          )
+        ]),
+         TableRow(children: [
+           _SigleCardSinBoton(
+            titulo: 'FSK',
+            desc:
+                'Frequency-shift keying, ya en español Desplazamiento de frecuencia, es una modulación de frecuencia donde la señal moduladora (datos) es digital.',
+            texto: '',
+          )
+        ]),
+         TableRow(children: [
+           _SigleCardSinBoton(
+            titulo: 'PSK',
+            desc:
+                'Phase-shift keying, lo que quiere decir en español desplazamiento de fase, es una modulación de fase donde la señal moduladora (datos) es digital.',
+            texto: '',
+          )
+        ]),
+         TableRow(children: [
+           _SigleCardSinBoton(
+            titulo: 'PCM',
+            desc:
+                'Pulse Code Modulation, traduce al español modulación de pulsos codificados, en este caso se debe realizar un muestreo de la señal, cuantificar la misma y codificarla.',
+            texto: '',
+          )
+        ]),
+        
       ],
     );
   }
@@ -154,6 +214,60 @@ class _SigleCard extends StatelessWidget {
                 ),
               )
             ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SigleCardSinBoton extends StatelessWidget {
+  final String titulo;
+  final String desc;
+  final String texto;
+
+  const _SigleCardSinBoton(
+      {super.key,
+      required this.titulo,
+      required this.desc,
+      required this.texto});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(15),
+      padding: EdgeInsets.all(20),
+      height: 240,
+      decoration: BoxDecoration(
+          color: Colors.black.withOpacity(0.5),
+          borderRadius: BorderRadius.circular(20)),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Text(
+                titulo,
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Expanded(
+            child: Text(desc,
+                maxLines: 5,
+                textAlign: TextAlign.justify,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    overflow: TextOverflow.ellipsis)),
+          ),
+          SizedBox(
+            height: 10,
           ),
         ],
       ),
